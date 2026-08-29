@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@source "../**/*.{html,js,ts,jsx,tsx}";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-rose-500: #f43f5e;
+  --color-rose-600: #e11d48;
+}
+
+@layer components {
+  .sound-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sound-btn:active {
+    transform: scale(0.95);
+  }
+  .sound-btn.playing {
+    border-color: var(--tw-shadow-color, #f59e0b);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+  }
+  .sound-btn.playing .sound-icon {
+    animation: pulse 0.6s ease-in-out infinite alternate;
+  }
+  @keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+  }
+  .sound-btn.recording {
+    border-color: #f43f5e;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+  }
+  @keyframes waveform-bar {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+  }
+  .waveform-active span {
+    animation: waveform-bar 0.8s ease-in-out infinite;
+  }
+  .waveform-active span:nth-child(2) { animation-delay: 0.1s; }
+  .waveform-active span:nth-child(3) { animation-delay: 0.2s; }
+  .waveform-active span:nth-child(4) { animation-delay: 0.3s; }
+  .waveform-active span:nth-child(5) { animation-delay: 0.15s; }
+  .waveform-active span:nth-child(6) { animation-delay: 0.35s; }
+  .waveform-active span:nth-child(7) { animation-delay: 0.05s; }
+  .waveform-active span:nth-child(8) { animation-delay: 0.25s; }
+  .waveform-active span:nth-child(9) { animation-delay: 0.4s; }
+  .waveform-active span:nth-child(10) { animation-delay: 0.12s; }
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #f59e0b;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #f59e0b;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+    background: #e5e7eb;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: #e5e7eb;
+  }
+}

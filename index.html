@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunde-Geräusch-Trainer</title>
+    <link rel="stylesheet" href="fonts.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./dist/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+    <div class="flex min-h-screen flex-col">
+        <header class="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-10">
+            <div class="container mx-auto flex items-center justify-between px-4 py-3">
+                <div class="flex items-center gap-3">
+                    <h1 class="text-xl font-bold tracking-tight">Hunde-Geräusch-Trainer</h1>
+                      <button onclick="fullscreen()" class="m-2 absolute right-5  p-2 rounded-full bg-white border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <img src="fullscreen.svg" loading="lazy" alt="Fullscreen" class="w-8 h-8">
+                        </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="relative w-full h-12">
+            <!-- Play-Button -->
+            <button id="play-button" onclick="startLoop()" class="m-2 absolute right-20 top-0 p-2 rounded-full bg-white border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                <img src="play.svg" loading="lazy" alt="play" class="w-8 h-8">
+            </button>
+            
+            <!-- Loop-Button (versteckt) -->
+            <button id="loop-button" onclick="stopLoop()" class="m-2 hidden absolute right-20 top-0 p-2 rounded-full bg-white border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                <img src="loop.svg" loading="lazy" alt="Loop" class="w-8 h-8">
+            </button>
+
+              <button onclick="zoom()" class="m-2 absolute right-5 top-0 p-2 rounded-full bg-white border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                <img src="zoom.svg" loading="lazy" alt="Zoom" class="w-8 h-8">
+            </button>
+        </div>
+
+        <main class="m-6 flex-1">
+            <div class="container mx-auto px-4 py-8">
+                <section class="mb-12">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="small0">
+                        <button id="bell" onclick="playSound1()" class="group relative min-h-50 w-full flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <span class="text-xl font-bold text-gray-600">Türklingel</span>
+                        </button>
+
+                        <button id="knock" onclick="playSound2()" class="group relative min-h-50 w-full flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <span class="text-xl font-bold text-gray-600">Klopfen</span>
+                        </button>
+
+                        <button id="fireworks" onclick="playSound3()" class="group relative min-h-50 w-full flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <span class="text-xl font-bold text-gray-600">Feuerwerk</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+             <div class="container mx-auto px-4 py-8 hidden" id="small1">
+                <section class="mb-12">
+                    <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-4" id="sound-grid">
+                        <button id="bell" onclick="playSound1()" class="group relative min-h-50 w-full flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <span class="text-xl font-bold text-gray-600">Türklingel</span>
+                        </button>
+
+                        <button id="knock" onclick="playSound2()" class="group relative min-h-50 w-full flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <span class="text-xl font-bold text-gray-600">Klopfen</span>
+                        </button>
+
+                        <button id="fireworks" onclick="playSound3()" class="group relative min-h-50 w-full flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none">
+                            <span class="text-xl font-bold text-gray-600">Feuerwerk</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
