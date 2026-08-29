@@ -9,19 +9,20 @@ function fullscreen() {
         document.documentElement.requestFullscreen();
     }
 }
+
 function zoom() {
-    const small0 = document.getElementById('small0'); // Korrigiert: mit doppel-'l'
+    const small0 = document.getElementById('small0'); 
     const small1 = document.getElementById('small1');
 
     // Schaltet hin und her zwischen normaler Ansicht und Zoom-Ansicht
-    small0.classList.toggle('hidden');
-    small1.classList.toggle('hidden');
+    if (small0) small0.classList.toggle('hidden');
+    if (small1) small1.classList.toggle('hidden');
 }
 
 function startLoop() {
     document.getElementById('play-button').classList.add('hidden');
     document.getElementById('loop-button').classList.remove('hidden');
-    currentmode = 'loop'; // Tippfehler 'curentmode' behoben!
+    currentmode = 'loop'; 
 }
 
 function stopLoop() {
@@ -46,7 +47,7 @@ function playSound(soundFile) {
     currentAudio.play();
 }
 
-// Einzelne Aufrufe nutzen jetzt die Hilfsfunktion
+// Einzelne Aufrufe für die Buttons im HTML
 function playSound1() {
     playSound('klingeln.mp3');
 }
